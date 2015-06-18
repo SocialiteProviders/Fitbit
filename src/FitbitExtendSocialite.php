@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Fitbit;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;

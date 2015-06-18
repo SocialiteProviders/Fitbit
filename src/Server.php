@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Fitbit;
 
 use Laravel\Socialite\One\User;
@@ -46,11 +47,11 @@ class Server extends BaseServer
     {
         $data = $data['user'];
 
-        $user         = new User();
-        $user->id     = $data['encodedId'];
-        $user->name   = $data['displayName'];
+        $user = new User();
+        $user->id = $data['encodedId'];
+        $user->name = $data['displayName'];
         $user->avatar = $data['avatar150'];
-        $user->extra  = array_diff_key($data, array_flip([
+        $user->extra = array_diff_key($data, array_flip([
             'encodedId', 'displayName', 'avatar150',
         ]));
 

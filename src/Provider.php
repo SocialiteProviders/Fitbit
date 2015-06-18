@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Fitbit;
 
 use Laravel\Socialite\One\AbstractProvider;
@@ -11,8 +12,8 @@ class Provider extends AbstractProvider
      */
     public function user()
     {
-        if (! $this->hasNecessaryVerifier()) {
-            throw new \InvalidArgumentException("Invalid request. Missing OAuth verifier.");
+        if (!$this->hasNecessaryVerifier()) {
+            throw new \InvalidArgumentException('Invalid request. Missing OAuth verifier.');
         }
 
         $user = $this->server->getUserDetails($token = $this->getToken());
