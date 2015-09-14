@@ -1,5 +1,4 @@
 <?php
-
 namespace SocialiteProviders\Fitbit;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
@@ -7,14 +6,10 @@ use SocialiteProviders\Manager\SocialiteWasCalled;
 class FitbitExtendSocialite
 {
     /**
-     * Register the provider.
-     *
-     * @param \SocialiteProviders\Manager\SocialiteWasCalled $socialiteWasCalled
+     * Execute the provider.
      */
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
-        $socialiteWasCalled->extendSocialite(
-            'fitbit', __NAMESPACE__.'\Provider', __NAMESPACE__.'\Server'
-        );
+        $socialiteWasCalled->extendSocialite('fitbit', __NAMESPACE__.'\Provider');
     }
 }
