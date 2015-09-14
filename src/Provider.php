@@ -1,4 +1,5 @@
 <?php
+
 namespace SocialiteProviders\Fitbit;
 
 use Laravel\Socialite\Two\AbstractProvider;
@@ -42,7 +43,7 @@ class Provider extends AbstractProvider implements ProviderInterface
         $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
 
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
-            'headers' => ['Accept' => 'application/json', 'Authorization' => 'Basic ' . base64_encode($this->clientId . ':' . $this->clientSecret)],
+            'headers' => ['Accept' => 'application/json', 'Authorization' => 'Basic '.base64_encode($this->clientId.':'.$this->clientSecret)],
             $postKey => $this->getTokenFields($code),
         ]);
 
@@ -69,11 +70,11 @@ class Provider extends AbstractProvider implements ProviderInterface
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id'       => $user['user']['encodedId'],
+            'id' => $user['user']['encodedId'],
             'nickname' => $user['user']['nickname'],
-            'name'     => $user['user']['fullName'],
-            'email'    => null,
-            'avatar'   => $user['user']['avatar150'],
+            'name' => $user['user']['fullName'],
+            'email' => null,
+            'avatar' => $user['user']['avatar150'],
         ]);
     }
 
@@ -83,7 +84,7 @@ class Provider extends AbstractProvider implements ProviderInterface
     protected function getTokenFields($code)
     {
         return array_merge(parent::getTokenFields($code), [
-            'grant_type' => 'authorization_code'
+            'grant_type' => 'authorization_code',
         ]);
     }
 }
