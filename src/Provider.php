@@ -2,13 +2,18 @@
 
 namespace SocialiteProviders\Fitbit;
 
-use Laravel\Socialite\Two\AbstractProvider;
 use Laravel\Socialite\Two\ProviderInterface;
-use Laravel\Socialite\Two\User;
+use SocialiteProviders\Manager\OAuth2\AbstractProvider;
+use SocialiteProviders\Manager\OAuth2\User;
 use GuzzleHttp\ClientInterface;
 
 class Provider extends AbstractProvider implements ProviderInterface
 {
+    /**
+     * Unique Provider Identifier.
+     */
+    const IDENTIFIER = 'FITBIT';
+
     /**
      * {@inheritdoc}
      */
