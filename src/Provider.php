@@ -52,6 +52,9 @@ class Provider extends AbstractProvider implements ProviderInterface
             $postKey => $this->getTokenFields($code),
         ]);
 
+
+        $this->credentialsResponseBody = json_decode($response->getBody(), true);
+
         return $this->parseAccessToken($response->getBody());
     }
 
