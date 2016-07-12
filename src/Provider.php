@@ -43,7 +43,7 @@ class Provider extends AbstractProvider implements ProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getAccessToken($code)
+    public function getAccessTokenResponse($code)
     {
         $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
 
@@ -54,7 +54,7 @@ class Provider extends AbstractProvider implements ProviderInterface
 
         $this->credentialsResponseBody = json_decode($response->getBody(), true);
 
-        return $this->parseAccessToken($response->getBody());
+        return json_decode($response->getBody(), true);
     }
 
     /**
