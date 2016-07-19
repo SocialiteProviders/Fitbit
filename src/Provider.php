@@ -22,7 +22,7 @@ class Provider extends AbstractProvider implements ProviderInterface
     /**
      * {@inheritdoc}
      */
-    protected $scopes = ['activity', 'nutrition', 'profile', 'settings', 'sleep', 'social', 'weight'];
+    protected $scopes = ['profile'];
 
     /**
      * {@inheritdoc}
